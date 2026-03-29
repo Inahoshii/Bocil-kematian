@@ -1,0 +1,118 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Nunito', sans-serif; background: #000; overflow: hidden; width: 100vw; height: 100vh; touch-action: manipulation; }
+h1, h2, h3 { font-family: 'Fredoka One', cursive; text-align: center; }
+h1 { font-size: 3rem; }
+
+.hidden { display: none !important; }
+.mt-10 { margin-top: 10px; } .mt-20 { margin-top: 20px; } .mb-10 { margin-bottom: 10px; }
+.text-gold { color: #FFD700; } .text-pink { color: #FF69B4; } .text-red { color: #ff3333; }
+.text-glow { text-shadow: 0 0 20px #FFD700, 0 0 40px #FF8C00; }
+.text-blink { animation: blink 1s infinite; }
+
+/* Teks Super Besar untuk Final Screen */
+.text-huge { font-size: 12vw !important; line-height: 1.2; padding: 0 20px; word-wrap: break-word; text-transform: uppercase; }
+
+#main-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; background: #111; }
+
+.screen { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; color: #fff; padding: 5vw; transition: opacity 0.5s; }
+
+/* LOADING & DIALOG */
+.loading-gif { width: 100px; border-radius: 50%; }
+.loading-bar { width: 250px; height: 20px; background: #333; border-radius: 10px; margin: 20px 0; border: 2px solid #FFD700; overflow: hidden; }
+#load-fill { height: 100%; background: linear-gradient(90deg, #FFD700, #FF8C00); transition: width 0.1s; }
+
+.quest-box { background: #fdf6e3; color: #3e2723; padding: 20px; border-radius: 12px; border: 5px solid #8b4513; display: flex; align-items: center; gap: 20px; max-width: 600px; width: 90%; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+#anya-face { width: 90px; height: 90px; border-radius: 10px; object-fit: cover; border: 3px solid #8b4513; }
+.quest-text { text-align: left; font-size: 1.1rem; font-weight: bold; }
+.instruction { background: rgba(0,0,0,0.6); padding: 15px; border-radius: 8px; border: 2px dashed #FFD700; font-weight: bold; }
+
+.btn { background: #d84315; color: #fff; padding: 15px 30px; border-radius: 12px; border: none; box-shadow: 0 6px 0 #8b0000; font-size: 1.3rem; cursor: pointer; font-family: 'Fredoka One', cursive; transition: 0.1s; }
+.btn:active { transform: translateY(5px); box-shadow: none; }
+
+/* ========================================= */
+/* EFEK MEWAH (LUXURY UPGRADE)               */
+/* ========================================= */
+.luxury-bg { background: radial-gradient(circle at center, #2b1100 0%, #000000 100%) !important; }
+
+.glass-panel { background: rgba(20, 20, 20, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 2px solid rgba(255, 215, 0, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(255, 215, 0, 0.1); border-radius: 20px; padding: 25px; color: #fff; max-width: 650px; width: 95%; text-align: center; font-size: 1.1rem; line-height: 1.6; }
+.divider { height: 2px; background: linear-gradient(90deg, transparent, #FFD700, transparent); width: 80%; margin: 0 auto; }
+.drop-glow { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)); }
+
+.btn-luxury { background: linear-gradient(135deg, #FFD700, #FF8C00); color: #3e2723; padding: 18px 35px; border-radius: 30px; border: 3px solid #FFF; font-size: 1.3rem; font-weight: 900; cursor: pointer; font-family: 'Fredoka One', cursive; box-shadow: 0 10px 20px rgba(255, 140, 0, 0.5), inset 0 -4px 0 rgba(0,0,0,0.2); transition: 0.2s; text-transform: uppercase; letter-spacing: 1px; }
+.btn-luxury:active { transform: scale(0.95) translateY(5px); box-shadow: 0 2px 5px rgba(255, 140, 0, 0.5); }
+
+.light-rays { position: absolute; top: 50%; left: 50%; width: 200vw; height: 200vw; background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 215, 0, 0.1) 10deg, transparent 20deg, rgba(255, 215, 0, 0.1) 30deg, transparent 40deg, rgba(255, 215, 0, 0.1) 50deg, transparent 60deg, rgba(255, 215, 0, 0.1) 70deg, transparent 80deg, rgba(255, 215, 0, 0.1) 90deg, transparent 100deg, rgba(255, 215, 0, 0.1) 110deg, transparent 120deg, rgba(255, 215, 0, 0.1) 130deg, transparent 140deg, rgba(255, 215, 0, 0.1) 150deg, transparent 160deg, rgba(255, 215, 0, 0.1) 170deg, transparent 180deg, rgba(255, 215, 0, 0.1) 190deg, transparent 200deg, rgba(255, 215, 0, 0.1) 210deg, transparent 220deg, rgba(255, 215, 0, 0.1) 230deg, transparent 240deg, rgba(255, 215, 0, 0.1) 250deg, transparent 260deg, rgba(255, 215, 0, 0.1) 270deg, transparent 280deg, rgba(255, 215, 0, 0.1) 290deg, transparent 300deg, rgba(255, 215, 0, 0.1) 310deg, transparent 320deg, rgba(255, 215, 0, 0.1) 330deg, transparent 340deg, rgba(255, 215, 0, 0.1) 350deg, transparent 360deg); transform: translate(-50%, -50%); animation: slowSpin 20s linear infinite; z-index: 1; pointer-events: none; }
+@keyframes slowSpin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.gift-float { animation: floatBox 3s ease-in-out infinite; cursor: pointer; }
+@keyframes floatBox { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+/* ========================================= */
+/* GAME LAYOUT & MECHANICS                   */
+/* ========================================= */
+#game-screen { background-color: #333; align-items: stretch; justify-content: flex-start; padding: 0; z-index: 50; }
+#game-screen::before { content: ''; position: absolute; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); pointer-events: none; }
+#peanut-spawner { position: relative; width: 100%; height: 75vh; overflow: hidden; }
+
+.peanut-target { position: absolute; width: 75px; height: 75px; background: url('assets/peanut.png') center/contain no-repeat; cursor: pointer; filter: drop-shadow(0 0 15px #FFD700); animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 55; }
+.peanut-target:active { transform: scale(0.8); }
+.peanut-fly { animation: flyToProfile 0.6s ease-in forwards; pointer-events: none; }
+
+.sparkle-particle { position: absolute; width: 15px; height: 15px; background: gold; border-radius: 50%; pointer-events: none; z-index: 54; box-shadow: 0 0 10px #FFD700; animation: particleExplode 0.8s ease-out forwards; }
+
+@keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+@keyframes flyToProfile { 0% { transform: scale(1); } 100% { transform: scale(0.2); left: 10vw !important; top: 90vh !important; } }
+@keyframes particleExplode { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(var(--rx), var(--ry)) scale(0.2); opacity: 0; } }
+
+/* HUD BAWAH */
+.hud-bottom { position: absolute; bottom: 0; left: 0; width: 100%; height: 25vh; background: linear-gradient(to top, rgba(26,0,17,0.9) 20%, transparent); display: flex; align-items: flex-end; justify-content: space-between; padding: 15px; pointer-events: none; gap: 15px; }
+.anya-react-slot { position: relative; width: 90px; height: 90px; }
+#anya-game-face { width: 100%; height: 100%; object-fit: contain; animation: anyaPopIn 0.3s alternate; filter: drop-shadow(0 0 15px #FF69B4); }
+@keyframes anyaPopIn { from { transform: scale(0) translateY(50px); } to { transform: scale(1) translateY(0); } }
+
+.player-hud { display: flex; align-items: flex-end; gap: 10px; }
+.profile-frame { background: rgba(0,0,0,0.6); padding: 5px; border-radius: 15px; border: 4px solid #FFD700; animation: breathingGlow 2s infinite alternate; }
+.avatar-img { width: 90px; height: 120px; object-fit: contain; border-radius: 10px; }
+.score-board { background: rgba(0,0,0,0.8); border: 3px solid #ff4500; border-radius: 15px; padding: 8px 15px; color: #FFD700; text-shadow: 1px 1px 5px #000; pointer-events: none; height: 60px; display: flex; align-items: center; }
+@keyframes breathingGlow { from { box-shadow: 0 0 10px #FFD700; } to { box-shadow: 0 0 25px #FFD700, inset 0 0 10px #FFD700; } }
+
+/* PORTAL */
+#portal-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(0,0,0,0.8); z-index: 60; }
+.portal { width: 150px; height: 200px; background: radial-gradient(circle, #ff00ff, #4a00e0); border-radius: 50%; box-shadow: 0 0 50px #ff00ff; animation: spinPortal 3s linear infinite; cursor: pointer; border: 5px dashed #FFD700; transition: 0.2s; }
+.portal:active { transform: scale(0.85); box-shadow: 0 0 100px #fff; }
+@keyframes spinPortal { 100% { transform: rotate(360deg); } }
+
+/* FOTO & SCREEN SCROLL */
+#victory-screen, #memory-screen, #doa-screen, #final-screen { justify-content: flex-start; padding-top: 5vh; overflow-y: auto; }
+
+.gallery { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.polaroid { background: #fff; padding: 10px 10px 20px; width: 150px; box-shadow: 0 15px 35px #000; transform: rotate(-3deg); transition: 0.3s; }
+.polaroid:hover { transform: scale(1.1) rotate(0deg); z-index: 10; box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4); }
+.polaroid img { width: 100%; height: 120px; object-fit: cover; border: 2px solid #ddd; }
+.polaroid p { color: #333; font-size: 0.9rem; font-weight: 900; margin-top: 5px; text-align: center; }
+
+/* ========================================= */
+/* LIRIK SPOTIFY STYLE                       */
+/* ========================================= */
+.lyrics-container { width: 90%; max-width: 600px; height: 150px; overflow: hidden; position: relative; margin-top: 15px; -webkit-mask-image: linear-gradient(transparent, black 20%, black 80%, transparent); mask-image: linear-gradient(transparent, black 20%, black 80%, transparent); }
+#lyrics-content { position: absolute; top: 50px; left: 0; width: 100%; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.lyric-line { height: 50px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: rgba(255, 255, 255, 0.3); transition: all 0.3s; transform: scale(0.9); }
+.lyric-text { font-size: 1.1rem; font-weight: bold; }
+.lyric-sub { font-size: 0.8rem; font-style: italic; opacity: 0.8; }
+.lyric-line.active { color: #FFD700; transform: scale(1.15); text-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+.lyric-line.active .lyric-sub { color: #FF8C00; }
+
+@media (max-width: 600px) {
+    h1 { font-size: 2.2rem; }
+    .text-huge { font-size: 15vw !important; }
+    .quest-box { flex-direction: column; text-align: center; gap: 10px; }
+    .avatar-img { width: 70px; height: 100px; }
+    .score-board h2 { font-size: 1.2rem; }
+    .anya-react-slot { width: 60px; height: 60px; }
+    .polaroid { width: 110px; padding: 5px 5px 15px; }
+    .polaroid img { height: 80px; }
+    .gift-img { width: 120px; }
+    .anya-victory { height: 20vh; }
+    .message-card { font-size: 0.9rem; padding: 15px; }
+    .btn-luxury { font-size: 1.1rem; padding: 12px 20px; }
+}

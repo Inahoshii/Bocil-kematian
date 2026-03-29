@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ANYA'S GUILD QUEST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- AUDIO FILES (NAMA SUDAH DISESUAIKAN) -->
+    <audio id="sfx-coin" src="assets/Coin Collect SFX  ROYALTY FREE SOUND EFFECTS.mp3"></audio>
+    <audio id="sfx-portal" src="assets/Doctor Strange Portal Effect  High Quality  #shorts #visualeffects #doctorstrange.mp3"></audio>
+    <audio id="bgm-game" src="assets/Fairy Tail Main Theme (8-bit).mp3" loop></audio>
+    <audio id="bgm-ending" src="assets/[MAKI OTSUKIMEMORIES].mp3" loop></audio>
+
+    <div id="main-container">
+
+        <!-- 1. LOADING SCREEN -->
+        <div id="loading-screen" class="screen">
+            <img src="https://media.tenor.com/2X8sEw10R6YAAAAi/anya-spy-x-family.gif" class="loading-gif" alt="Loading">
+            <div class="loading-bar"><div id="load-fill" style="width: 0%;"></div></div>
+            <p class="mt-10">Menyambungkan ke Guild...</p>
+        </div>
+
+        <!-- 2. INTRO SCREEN -->
+        <div id="intro-screen" class="screen hidden">
+            <h1 class="text-gold text-glow">GUILD QUEST!</h1>
+            <div class="quest-box mt-20">
+                <img src="assets/anya 1.png" id="anya-face" alt="Anya">
+                <div class="quest-text">
+                    <h3 class="text-pink">Anya Forger</h3>
+                    <p id="dialogue-text"></p>
+                </div>
+            </div>
+            <p class="instruction mt-20 text-blink hidden" id="tutor-text">
+                ⚠️ TAP kacang yang muncul dengan cepat! Anya akan menilai refleks jarimu!
+            </p>
+            <button id="btn-next" class="btn hidden mt-20">LANJUT ▶</button>
+            <button id="btn-start" class="btn hidden mt-20">TERIMA MISI ▶</button>
+        </div>
+
+        <!-- 3. GAME SCREEN -->
+        <div id="game-screen" class="screen hidden" style="background: url('assets/background mini game.jpg') center/cover;">
+            <div id="peanut-spawner"></div>
+            
+            <div class="hud-bottom">
+                <div class="anya-react-slot">
+                    <img src="assets/anya smug.png" id="anya-game-face" class="hidden" alt="Anya React">
+                </div>
+
+                <div class="player-hud">
+                    <div class="profile-frame">
+                        <img src="assets/ava tara.jpg" class="avatar-img" alt="Player">
+                    </div>
+                    <div class="score-board">
+                        <h2>🥜 <span id="peanut-score">0</span> / 15</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div id="portal-container" class="hidden">
+                <h2 class="text-blink text-gold text-glow" style="font-size: 2rem;">PORTAL TERBUKA! TAP PORTALNYA!</h2>
+                <div class="portal mt-20"></div>
+            </div>
+        </div>
+
+        <!-- 4. UNBOXING -->
+        <div id="unboxing-screen" class="screen hidden luxury-bg">
+            <div class="light-rays"></div>
+            <h2 class="text-gold text-glow" style="font-size: 2.5rem; z-index: 2;">KADO DARI INA!</h2>
+            <div id="gift-box" class="mt-20 gift-float" style="z-index: 2;">
+                <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" class="gift-img drop-glow" alt="Gift">
+                <p id="tap-count" class="text-blink mt-20" style="font-size: 1.5rem; font-weight: bold; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 20px; border: 2px solid #FFD700;">TAP 5X UNTUK BUKA!</p>
+            </div>
+        </div>
+
+        <!-- 5. VICTORY -->
+        <div id="victory-screen" class="screen hidden luxury-bg">
+            <h1 class="text-gold text-glow" style="font-size: 3.5rem;">QUEST CLEARED!</h1>
+            <img src="assets/anya smug.png" class="anya-victory drop-glow mt-10" alt="Smug">
+            
+            <div class="message-card glass-panel mt-20">
+                <p class="text-gold" style="font-size: 1.2rem;">"Heh 𓁹‿𓁹. Ternyata reflek jari kamu lumayan juga!"</p>
+                <div class="divider mt-10 mb-10"></div>
+                <p>"Selamat nambah umur ya! Semoga skill Roblox-mu makin jago, gak cupu main game ya, dan hari-harimu selalu senang yeah."</p>
+                <p class="mt-10 text-pink" style="font-style: italic;">~ Dari temen terbaik, terimut, terkeren, terhebat kamu, Ina.</p>
+            </div>
+            
+            <button id="btn-memories" class="btn-luxury mt-20">✨ BUKA KENANGAN KITA ✨</button>
+        </div>
+
+        <!-- 6. MEMORY -->
+        <div id="memory-screen" class="screen hidden luxury-bg">
+            <h2 class="text-gold text-glow" style="font-size: 2.5rem;">MEMORI KITA</h2>
+            <div class="gallery mt-20">
+                <div class="polaroid"><img src="assets/kenangan 1.png" alt="M1"><p>Epic Moment!</p></div>
+                <div class="polaroid"><img src="assets/kenangan 2.png" alt="M2"><p>Suka Duka</p></div>
+                <div class="polaroid"><img src="assets/kenangan 3.png" alt="M3"><p>Bestie Forever! 💖</p></div>
+            </div>
+            
+            <div class="lyrics-container mt-20">
+                <div id="lyrics-content"></div>
+            </div>
+
+            <button id="btn-doa" class="btn-luxury mt-20" style="font-size: 1rem; padding: 12px 25px;">SELANJUTNYA ▶</button>
+        </div>
+
+        <!-- 7. DOA & HARAPAN -->
+        <div id="doa-screen" class="screen hidden luxury-bg">
+            <h2 class="text-gold text-glow" style="font-size: 2.5rem;">DOA & HARAPAN</h2>
+            
+            <div class="message-card glass-panel mt-20" style="display: flex; flex-direction: column; align-items: center;">
+                <div class="profile-frame drop-glow" style="width: 120px; height: 160px; border-radius: 15px; overflow: hidden; border: 3px solid #FFD700;">
+                    <img src="assets/ava tara.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Ava Tara">
+                </div>
+                <p class="mt-10 text-pink" style="font-size: 0.85rem; font-style: italic;">(gak ada foto mu, jadi pake ava mu saja ✌️)</p>
+                
+                <div class="divider mt-10 mb-10"></div>
+                
+                <p style="font-size: 1.1rem; line-height: 1.6;">"Semoga di lembaran umur yang baru ini, segala urusanmu dilancarkan, selalu diberikan kesehatan, dan apa yang kamu impikan bisa tercapai. Tetap jadi temen mabar yang seru dan jangan pernah berubah ya!"</p>
+            </div>
+
+            <button id="btn-final" class="btn-luxury mt-20">PESAN TERAKHIR 💌</button>
+        </div>
+
+        <!-- 8. FINAL ESTETIK PUNCHLINE -->
+        <div id="final-screen" class="screen hidden luxury-bg">
+            <div class="light-rays"></div>
+            <h1 class="text-huge text-gold text-glow text-blink drop-glow" style="z-index: 2;">WHEN YAH PES RIPIL</h1>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
